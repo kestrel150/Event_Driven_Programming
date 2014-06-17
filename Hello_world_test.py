@@ -28,6 +28,11 @@ class MainWindow(QMainWindow):
         self.widget.setLayout(self.layout)
         #set central widget
         self.setCentralWidget(self.widget)
+        self.submit_button.clicked.connect(self.display_text)
+
+    def display_text(self):
+        name = self.text_box.text()
+        self.text_label.setText("Hello {0}!".format(name))
         
 
 if __name__ == "__main__":
