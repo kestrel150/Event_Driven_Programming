@@ -42,11 +42,20 @@ class MainWindow(QMainWindow):
 
     def switch_layout(self):
         index = self.stacked_layout.currentIndex()
+        
+        if index == 0:
+            self.stacked_layout.setCurrentIndex(1)
+        elif index == 1:
+            self.stacked_layout.setCurrentIndex(0)
 
-        self.stacked_layout.setCurrentIndex(1)
-        if index == 1:
+        index = self.stacked_layout.currentIndex()
+
+        if index == 0:
+            self.text_box.clear()
+        elif index == 1:
             name = self.text_box.text()
             self.label.setText("Hello {0}.".format(name))
+        
 
     def create_hello_layout(self):
         self.label = QLabel()
